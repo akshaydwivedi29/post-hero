@@ -1,0 +1,15 @@
+<section class="breweries" id="breweries">
+    <ul>
+        <li *ngFor="let comment of comments">
+            <p class="name">
+                {{comment?.name}}
+            </p>
+            <p class="email">
+                {{comment?.email}}
+            </p>
+            <p>
+                {{comment?.body}}
+            </p>
+        </li>
+    </ul>
+</section>

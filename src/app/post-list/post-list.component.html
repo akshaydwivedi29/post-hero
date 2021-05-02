@@ -1,0 +1,13 @@
+<section class="breweries" id="breweries">
+    <ul>
+        <li *ngFor="let post of posts">
+            <title>
+                {{post?.title}}
+            </title>
+            <p>
+                {{post?.body}}
+            </p>
+            <a [routerLink]="['/post-comments',post.id]">View Comments</a>
+        </li>
+    </ul>
+</section>
