@@ -31,7 +31,7 @@ export class PostCommentsComponent implements OnInit {
       return false;
     }
     this.comments = this.rawComments.filter(
-      item => (item.name.toUpperCase() == searchTerm || item.email.toUpperCase() == searchTerm || item.body.includes(searchTerm))
+      item => (item.name.toUpperCase() == searchTerm || item.email.toUpperCase() == searchTerm || item.body.toUpperCase().includes(searchTerm))
     );
     if (this.comments.length < 1) {
       this.comments = this.rawComments;
