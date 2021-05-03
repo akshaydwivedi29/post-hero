@@ -10,6 +10,7 @@ import { HttpService } from '../http.service';
 export class PostCommentsComponent implements OnInit {
   private postId: number;
   comments: any;
+  rawComments;
   constructor(private route: ActivatedRoute, private httpService: HttpService) { }
 
   ngOnInit(): void {
@@ -20,8 +21,21 @@ export class PostCommentsComponent implements OnInit {
       })
     ).subscribe(comments => {
       this.comments = comments;
+      this.rawComments = this.comments;
     });
   }
-
+  doSearch(event) {
+    const searchTerm: string = event.target.value.trim().toUpperCase();
+    if (searchTerm.length < 3) {
+      this.comments = this.rawComments;
+      return false;
+    }
+    this.comments = this.rawComments.filter(
+      item => (item.name.toUpperCase() == searchTerm || item.email.toUpperCase() == searchTerm || item.body.includes(searchTerm))
+    );
+    if (this.comments.length < 1) {
+      this.comments = this.rawComments;
+    }
+  }
 }
 

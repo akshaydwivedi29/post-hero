@@ -1,11 +1,20 @@
+<h1>
+    POST COMMENTS
+</h1>
+<section class="search">
+    <div class="search-component">
+        <input class="search-input" type="text" (keyup)="doSearch($event)" placeholder="Start typing to search">
+    </div>
+
+</section>
 <section class="breweries" id="breweries">
     <ul>
         <li *ngFor="let comment of comments">
             <p class="name">
-                {{comment?.name}}
+              <label>Name: </label>  {{comment?.name}}
             </p>
             <p class="email">
-                {{comment?.email}}
+               <label>Email: </label> {{comment?.email}}
             </p>
             <p>
                 {{comment?.body}}
